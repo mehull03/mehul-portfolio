@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mehul Sharma — Data Science Intern</title>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Mehul Sharma</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="theme-toggle" aria-label="Toggle dark mode"><i class="fa fa-moon"></i></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="home" data-aos="fade-up">
+    <div class="hero-inner">
+      <h1>Mehul Sharma</h1>
+      <p>Data Science Intern • Python • Machine Learning • SQL</p>
+      <a class="cta" href="#projects">View Projects</a>
+    </div>
+    <div class="hero-image" data-aos="fade-left">
+      <img src="assets/profile-placeholder.png" alt="Mehul Sharma">
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section" data-aos="fade-right">
+      <div class="container">
+        <h2>About Me</h2>
+        <p><strong>Location:</strong> Jammu, Jammu &amp; Kashmir, India</p>
+        <p><strong>Education:</strong> B.Tech in Computer Science, IKGPTU (2022–2026)</p>
+        <p>I build data products and dashboards — Python, Pandas, Scikit-learn, SQL, Power BI.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="section" data-aos="fade-up">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <article class="card" data-aos="zoom-in">
+            <img src="assets/project-usedcar.png" alt="Dynamic Pricing">
+            <h3>Dynamic Pricing — Used Cars</h3>
+            <p>ML model to optimize fair pricing for used car listings. Python, Scikit-learn, Pandas.</p>
+            <div class="card-tags"><span>Python</span><span>ML</span><span>Data Viz</span></div>
+          </article>
+
+          <article class="card" data-aos="zoom-in" data-aos-delay="100">
+            <img src="assets/project-blinkit.png" alt="Blinkit Dashboard">
+            <h3>Blinkit Sales Dashboard</h3>
+            <p>Power BI dashboard analyzing sales, discounts and KPIs. Includes measures & visuals.</p>
+            <div class="card-tags"><span>Power BI</span><span>DAX</span><span>Dashboards</span></div>
+          </article>
+
+          <article class="card" data-aos="zoom-in" data-aos-delay="200">
+            <img src="assets/project-generic.png" alt="Other">
+            <h3>Other Projects</h3>
+            <p>Data cleaning, feature engineering, EDA, and model deployment experiments.</p>
+            <div class="card-tags"><span>SQL</span><span>ETL</span><span>Deployment</span></div>
+          </article>
+        </div>
+
+        <h3>Embedded Power BI (placeholder)</h3>
+        <!-- Power BI embed: replace src with actual embed link -->
+        <div class="powerbi-embed">
+          <iframe src="about:blank" title="Power BI Embed" sandbox="" frameborder="0"></iframe>
+          <p class="muted">Replace iframe src with your Power BI publish-to-web link or Power BI report embed code.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" data-aos="fade-up">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+        <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Mehul Sharma — Data Science Intern</p>
+      <div class="socials">
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({duration:700, once:true});
+    // Theme toggle
+    const btn = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    const icon = btn.querySelector('i');
+    const preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const stored = localStorage.getItem('theme');
+    if(stored==='dark' || (!stored && preferDark)) root.classList.add('dark');
+    function updateIcon(){ icon.className = root.classList.contains('dark') ? 'fa fa-sun' : 'fa fa-moon'; }
+    updateIcon();
+    btn.addEventListener('click', ()=>{ root.classList.toggle('dark'); localStorage.setItem('theme', root.classList.contains('dark')?'dark':'light'); updateIcon(); });
+
+    // Small GSAP entrance animation
+    gsap.from('.card', {y:30, opacity:0, stagger:0.12, duration:0.6, ease:'power2.out'});
+  </script>
+</body>
+</html>
